@@ -2,6 +2,8 @@
 #'
 #' JGP Corporate Debt Securities CDI Index.
 #'
+#' For more information, please, go to the website: \url{https://idex.jgp.com.br/}.
+#'
 #' @param index The index to be called. One of: \code{geral}, \code{core} or \code{low_rated}.
 #'
 #' @return A \code{tibble} with \code{12} columns.
@@ -44,6 +46,8 @@ idex_cdi <- function(index = c("geral", "core", "low_rated")) {
 #' Idex-Ifra Database
 #'
 #' JGP Corporate Debt Securities Infrastructure Index.
+#'
+#' For more information, please, go to the website: \url{https://idex.jgp.com.br/}.
 #'
 #' @param index The index to be called. One of: \code{geral}, \code{core}.
 #'

@@ -1,10 +1,10 @@
 Package: idexr
 Type: Package
-Title: Get JGP Corporate Bonds Index in R
+Title: JGP Brazilian Corporate Bonds Index in R
 Version: 0.1.0
 Author: Bernardo Reckziegel
-Maintainer: .Bernardo Reckziegel <bernardo.reckziegel@retaasset.com>
-Description: Downloads JGP corporate debt securities index to R.
+Maintainer: Bernardo Reckziegel <bernardo.reckziegel@retaasset.com>
+Description: Easy access to JGP Brazilian Corporate Bonds Index in R.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

@@ -15,6 +15,9 @@ A \code{tibble} with \code{12} columns.
 \description{
 JGP Corporate Debt Securities Infrastructure Index.
 }
+\details{
+For more information, please, go to the website: \url{https://idex.jgp.com.br/}.
+}
 \examples{
 if (FALSE) {
   idex_ifra("core")
