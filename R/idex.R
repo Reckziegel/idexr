@@ -23,7 +23,7 @@ idex_cdi <- function(index = c("geral", "core", "low_rated")) {
   } else if (index == "core") {
     url <- "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_cdi_core_datafile.xlsx"
   } else {
-    "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_cdi_low_rated_datafile.xlsx"
+    url <- "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_cdi_low_rated_datafile.xlsx"
   }
 
   destfile <- "idex_cdi_datafile.xlsx"
@@ -31,13 +31,14 @@ idex_cdi <- function(index = c("geral", "core", "low_rated")) {
   curl::curl_download(url, destfile)
   idex <- readxl::read_excel(destfile)
 
-  names(idex) <- names(idex) |>
-    stringr::str_to_lower() |>
-    stringr::str_replace_all(pattern = " ", replacement = "_") |>
-    stringr::str_remove_all(pattern = "_\\(\\%\\)") |>
-    accentless()
+  # names(idex) <- names(idex) |>
+  #   stringr::str_to_lower() |>
+  #   stringr::str_replace_all(pattern = " ", replacement = "_") |>
+  #   stringr::str_remove_all(pattern = "_\\(\\%\\)") |>
+  #   accentless()
 
   idex |>
+    janitor::clean_names() |>
     dplyr::mutate(data = lubridate::as_date(data)) |>
     dplyr::mutate(dplyr::across(tidyselect::where(is.character), forcats::as_factor))
 
@@ -66,7 +67,7 @@ idex_ifra <- function(index = c("geral", "core")) {
   if (index == "geral") {
     url <- "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_infra_geral_datafile.xlsx"
   } else {
-    "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_infra_core_datafile.xlsx"
+    url <- "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_infra_core_datafile.xlsx"
   }
 
   destfile <- "idex_ifra_datafile.xlsx"
@@ -74,16 +75,18 @@ idex_ifra <- function(index = c("geral", "core")) {
   curl::curl_download(url, destfile)
   idex <- readxl::read_excel(destfile)
 
-  names(idex) <- names(idex) |>
-    stringr::str_to_lower() |>
-    stringr::str_replace_all(pattern = " ", replacement = "_") |>
-    stringr::str_remove_all(pattern = "_\\(\\%\\)") |>
-    stringr::str_remove_all(pattern = "\\(") |>
-    stringr::str_replace_all(pattern = "/", replacement = "_") |>
-    stringr::str_remove_all(pattern = "\\)") |>
-    accentless()
+  # names(idex) <- names(idex) |>
+  #   janitor::clean_names()
+  #   stringr::str_to_lower() |>
+  #   stringr::str_replace_all(pattern = " ", replacement = "_") |>
+  #   stringr::str_remove_all(pattern = "_\\(\\%\\)") |>
+  #   stringr::str_remove_all(pattern = "\\(") |>
+  #   stringr::str_replace_all(pattern = "/", replacement = "_") |>
+  #   stringr::str_remove_all(pattern = "\\)") |>
+  #   accentless()
 
   idex |>
+    janitor::clean_names() |>
     dplyr::mutate(data = lubridate::as_date(data)) |>
     dplyr::mutate(dplyr::across(tidyselect::where(is.character), forcats::as_factor))
 

@@ -5,10 +5,10 @@
 #' @return A A \code{character} vector without accents.
 #'
 #' @keywords internal
-accentless <- function(x) {
-  chartr(
-    "áéóuáéíóúÁÉÍÓÚýÝàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛãõÃÕñÑäëïöüÄËÏÖÜÿçÇ",
-    "aeouaeiouAEIOUyYaeiouAEIOUaeiouAEIOUaoAOnNaeiouAEIOUycC",
-    x
-  )
-}
+# accentless <- function(x) {
+#   chartr(
+#     "áéóuáéíóúÁÉÍÓÚýÝàèìòùÀÈÌÒÙâêîôûÂÊÎÔÛãõÃÕñÑäëïöüÄËÏÖÜÿçÇ",
+#     "aeouaeiouAEIOUyYaeiouAEIOUaeiouAEIOUaoAOnNaeiouAEIOUycC",
+#     x
+#   )
+# }
