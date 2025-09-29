@@ -19,11 +19,11 @@ idex_cdi <- function(index = c("geral", "core", "low_rated")) {
   rlang::arg_match(index, c("geral", "core", "low_rated"))
 
   if (index == "geral") {
-    url <- "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_cdi_geral_datafile.xlsx"
+    url <- "https://jgp-credito-public-s3.s3.us-east-1.amazonaws.com/idex/idex_cdi_geral_datafile.xlsx"
   } else if (index == "core") {
-    url <- "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_cdi_core_datafile.xlsx"
+    url <- "https://jgp-credito-public-s3.s3.us-east-1.amazonaws.com/idex/idex_cdi_core_datafile.xlsx"
   } else {
-    url <- "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_cdi_low_rated_datafile.xlsx"
+    url <- "https://jgp-credito-public-s3.s3.us-east-1.amazonaws.com/idex/idex_cdi_low_rated_datafile.xlsx"
   }
 
   destfile <- "idex_cdi_datafile.xlsx"
@@ -65,9 +65,9 @@ idex_ifra <- function(index = c("geral", "core")) {
   rlang::arg_match(index, c("geral", "core"))
 
   if (index == "geral") {
-    url <- "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_infra_geral_datafile.xlsx"
+    url <- "https://jgp-credito-public-s3.s3.us-east-1.amazonaws.com/idex/idex_infra_geral_datafile.xlsx"
   } else {
-    url <- "https://jgp-credito-s3.s3.sa-east-1.amazonaws.com/idex/idex_infra_core_datafile.xlsx"
+    url <- "https://jgp-credito-public-s3.s3.us-east-1.amazonaws.com/idex/idex_infra_core_datafile.xlsx"
   }
 
   destfile <- "idex_ifra_datafile.xlsx"
